@@ -24,6 +24,11 @@ public class MoneyValidator {
             errors.add(pay_error);
         }
 
+        String sum_error = _validateSum(m.getSum());
+        if(!sum_error.equals("")) {
+            errors.add(sum_error);
+        }
+
 
         return errors;
     }
@@ -35,7 +40,7 @@ public class MoneyValidator {
         return "";
     }
 
-    private static String _validateDeposit(Integer deposit) {
+    private static String _validateDeposit(String deposit) {
         if(deposit == null || deposit.equals("")) {
             return "数字を入力してください。";
         }
@@ -43,8 +48,15 @@ public class MoneyValidator {
 
     }
 
-    private static String _validatePay(Integer pay) {
+    private static String _validatePay(String pay) {
         if(pay == null || pay.equals("")) {
+            return "数字を入力してください。";
+        }
+        return "";
+    }
+
+    private static String _validateSum(String sum) {
+        if(sum == null || sum.equals("")) {
             return "数字を入力してください。";
         }
         return "";

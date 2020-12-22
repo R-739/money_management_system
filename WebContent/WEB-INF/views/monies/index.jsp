@@ -16,6 +16,7 @@
                     <th class="money_content">内訳</th>
                     <th class="money_deposit">入金額</th>
                     <th class="money_pay">出金額</th>
+                    <th class="money_sum">合計</th>
                     <th class="money_action">操作</th>
                 </tr>
                 <c:forEach var="money" items="${monies}" varStatus="status">
@@ -24,7 +25,8 @@
                         <td class="money_content">${money.content}</td>
                         <td class="money_deposit">${money.deposit}</td>
                         <td class="money_pay">${money.pay}</td>
-                        <td class="report_action"><a href="<c:url value='/reports/show?id=${report.id}' />">詳細を見る</a></td>
+                        <td class="money_sum">${money.sum}</td>
+                        <td class="money_action"><a href="<c:url value='/monies/show?id=${money.id}' />">詳細を見る</a></td>
                     </tr>
                 </c:forEach>
             </tbody>

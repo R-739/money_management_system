@@ -26,5 +26,9 @@
 <input type="number" name="pay" value="${money.pay}" />
 <br /><br />
 
+<label for="sum">合計</label><br />
+<input type="number" name="sum" value="${money.sum}" />
+<br /><br />
+
 <input type="hidden" name="_token" value="${_token}" />
 <button type="submit">登録</button>

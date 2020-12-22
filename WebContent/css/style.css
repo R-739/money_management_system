@@ -7,8 +7,11 @@ body {
 
 #header {
     width: 100%;
-    height: 70px;
+    height: 80px;
     background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+
 }
 
 #content {
@@ -17,12 +20,14 @@ body {
     padding-left: 3%;
 }
 
-h1 {
-    width: 94%;
+#header h1 {
+    width: 100%;
     padding-top: 17px;
-    padding-left: 3%;
+    padding-left: 5%;
     font-size: 24px;
     color: #eeeeee;
+
+
 }
 
 h2 {
@@ -81,20 +86,6 @@ button {
     text-align: center;
 }
 
-#header_menu {
-    width: 57%;
-    padding-top: 17px;
-    padding-left: 3%;
-    display: inline-block;
-}
-
-#employee_name {
-    color: #cccccc;
-    width: 36%;
-    padding-right: 3%;
-    text-align: right;
-    display: inline-block;
-}
 
 #header a {
     color: #eeeeee;
@@ -103,4 +94,69 @@ button {
 h1 a {
     color: #eeeeee;
 }
+
+#header ul {
+    display: flex;
+}
+#header ul li {
+    margin-left: 15px;
+    list-style: none;
+    padding-right: 15px;
+    padding-top:15px;
+}
+
+#header_logo {
+    padding-left: 20px;
+}
+
+table#money_list th {
+    font-weight: bold;
+    padding: 10px 2%;
+}
+
+table#money_list .money_date {
+    padding: 10px 2%;
+    width: 12%;
+}
+table#money_list .money_content {
+    width: 40%
+
+}
+table#money_list .money_deposit {
+    width: 12%;
+}
+
+table#money_list .money_pay {
+    width: 12%;
+}
+
+table#money_list .money_sum {
+    width: 12%;
+}
+
+table#money_list .money_action {
+    width: 12%;
+}
+
+
+#user_name {
+    color: #cccccc;
+    width: 36%;
+    padding-top: 2%;
+    padding-right: 3%;
+    text-align: right;
+    display: inline-block;
+}
+
+#flush_success {
+    width: 100%;
+    padding-top: 28px;
+    padding-left: 2%;
+    padding-bottom: 28px;
+    margin-bottom: 15px;
+    color: #155724;
+    background-color: #d4edda;
+}
+
+
 

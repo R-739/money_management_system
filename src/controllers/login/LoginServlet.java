@@ -92,7 +92,7 @@ public class LoginServlet extends HttpServlet {
             request.getSession().setAttribute("login_user", u);
 
             request.getSession().setAttribute("flush", "ログインしました。");
-            response.sendRedirect(request.getContextPath() + "/");
+            response.sendRedirect(request.getContextPath() + "/monies/index");
         }
     }
 

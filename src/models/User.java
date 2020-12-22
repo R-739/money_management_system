@@ -14,7 +14,7 @@ import javax.persistence.Table;
 @NamedQueries({
     @NamedQuery(
             name = "getAllUsers",
-            query = "SELECT u FROM User AS U ORDER BY u.id DESC"
+            query = "SELECT u FROM User AS u ORDER BY u.id DESC"
             ),
     @NamedQuery(
             name = "getUsersCount",
@@ -23,6 +23,10 @@ import javax.persistence.Table;
     @NamedQuery(
             name = "checkRegisteredCode",
             query = "SELECT COUNT(u) FROM User AS u WHERE u.code = :code"
+            ),
+    @NamedQuery(
+            name = "checkLoginCodeAndPassword",
+            query = "SELECT u FROM User AS u WHERE u.code = :code AND u.password = :pass"
             )
 })
 @Entity

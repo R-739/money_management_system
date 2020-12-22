@@ -12,19 +12,18 @@
         <div id="wrapper">
           <div id="header">
             <div id="header_logo">
-                <h1><a href="<c:url value='/' />">お金管理システム</a></h1>
+                <h1>お金管理システム</h1>
             </div>
-                <div id="header_right">
-                <ul>
-                <li><a href="<c:url value='/users/new' />">ユーザー登録</a></li>
-                <li><a href="<c:url value='/login' />">ログイン</a></li>
-                </ul>
-                </div>
-            </div>
+            <c:if test="${sessionScope.login_user != null}">
+             <div id="user_name">
+                <a href="<c:url value='/monies/index' />">帳簿一覧</a>&nbsp;
+                <c:out value="${sessionScope.login_user.name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
+                <a href="<c:url value='/logout' />">ログアウト</a>
+             </div>
+            </c:if>
+          </div>
                 <div id="content">
-                    <div class="text-center">
                         ${param.content}
-                    </div>
                 </div>
         </div>
     </body>

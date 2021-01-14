@@ -20,18 +20,18 @@
 
 
 <label for="deposit">入金額</label><br />
-<input type="text" name="deposit" value="${money.deposit}" id="deposit" />
+<input type="number" name="deposit" value="${money.deposit}" id="deposit" />
 <br /><br />
 
 
 <label for="pay">出金額</label><br />
-<input type="text" name="pay" value="${money.pay}" id="pay" />
+<input type="number" name="pay" value="${money.pay}" id="pay" />
 <br /><br />
 
 
 
 <label for="sum">合計</label><br />
-<input type="text" name="sum" value="" id="sum" />
+<input type="number" name="sum" value="" id="sum" />
 <input type="button" value="計算" onclick="clickBtn3()">
 <input type="button" value="クリア" onclick="clickBtn4()">
 

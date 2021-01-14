@@ -61,7 +61,7 @@ public class Money {
     private Timestamp updated_at;
 
     @Column(name = "deposit", nullable = false)
-    private String deposit;
+    private  String deposit;
 
     @Column(name = "pay", nullable = false)
     private String pay;
@@ -126,11 +126,11 @@ public class Money {
         this.updated_at = updated_at;
     }
 
-    public String getDeposit(){
+    public  String getDeposit(){
         return deposit;
     }
 
-    public void Deposit(String deposit){
+    public void setDeposit(String deposit){
         this.deposit = deposit;
     }
 
@@ -138,7 +138,7 @@ public class Money {
         return pay;
     }
 
-    public void Pay(String pay){
+    public void setPay(String pay){
     this.pay = pay;
     }
 
@@ -146,7 +146,7 @@ public class Money {
         return sum;
     }
 
-    public void Sum(String sum){
+    public void setSum(String sum){
         this.sum = sum;
     }
 

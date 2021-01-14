@@ -43,15 +43,17 @@ public class MoniesUpdateServlet extends HttpServlet {
 
             Money m = em.find(Money.class, (Integer)(request.getSession().getAttribute("money_id")));
 
+
             m.setMoney_date(Date.valueOf(request.getParameter("money_date")));
 
             m.setContent(request.getParameter("content"));
 
-            m.Deposit(request.getParameter("deposit"));
+            m.setDeposit(request.getParameter("deposit"));
 
-            m.Pay(request.getParameter("pay"));
+            m.setPay(request.getParameter("pay"));
 
-            m.Sum(request.getParameter("sum"));
+            m.setSum(request.getParameter("sum"));
+
 
             m.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 

@@ -46,6 +46,7 @@ public class MoniesCreateServlet extends HttpServlet {
 
             m.setUser((User)request.getSession().getAttribute("login_user"));
 
+
             Date money_date = new Date(System.currentTimeMillis());
             String rd_str = request.getParameter("money_date");
             if(rd_str != null && !rd_str.equals("")) {
@@ -55,11 +56,11 @@ public class MoniesCreateServlet extends HttpServlet {
 
             m.setContent(request.getParameter("content"));
 
-            m.Deposit(request.getParameter("deposit"));
+            m.setDeposit(request.getParameter("deposit"));
 
-            m.Pay(request.getParameter("pay"));
+            m.setPay(request.getParameter("pay"));
 
-            m.Sum(request.getParameter("sum"));
+            m.setSum(request.getParameter("sum"));
 
             m.setLikes(0);
 

@@ -14,21 +14,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import models.Money;
-import models.User;
 import models.validators.MoneyValidator;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class MoniesCreateServlet
+ * Servlet implementation class MoniesUpdateServlet
  */
-@WebServlet("/monies/create")
-public class MoniesCreateServlet extends HttpServlet {
+@WebServlet("/monies/update")
+public class MoniesUpdateServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MoniesCreateServlet() {
+    public MoniesUpdateServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -42,16 +41,9 @@ public class MoniesCreateServlet extends HttpServlet {
         if(_token != null && _token.equals(request.getSession().getId())) {
             EntityManager em = DBUtil.createEntityManager();
 
-            Money m = new Money();
+            Money m = em.find(Money.class, (Integer)(request.getSession().getAttribute("money_id")));
 
-            m.setUser((User)request.getSession().getAttribute("login_user"));
-
-            Date money_date = new Date(System.currentTimeMillis());
-            String rd_str = request.getParameter("money_date");
-            if(rd_str != null && !rd_str.equals("")) {
-                money_date = Date.valueOf(request.getParameter("money_date"));
-            }
-            m.setMoney_date(money_date);
+            m.setMoney_date(Date.valueOf(request.getParameter("money_date")));
 
             m.setContent(request.getParameter("content"));
 
@@ -61,13 +53,7 @@ public class MoniesCreateServlet extends HttpServlet {
 
             m.Sum(request.getParameter("sum"));
 
-            m.setLikes(0);
-
-            m.setDislikes(0);
-
-            Timestamp currentTime = new Timestamp(System.currentTimeMillis());
-            m.setCreated_at(currentTime);
-            m.setUpdated_at(currentTime);
+            m.setUpdated_at(new Timestamp(System.currentTimeMillis()));
 
             List<String> errors = MoneyValidator.validate(m);
             if(errors.size() > 0) {
@@ -77,20 +63,18 @@ public class MoniesCreateServlet extends HttpServlet {
                 request.setAttribute("money", m);
                 request.setAttribute("errors", errors);
 
-                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/monies/new.jsp");
+                RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/monies/edit.jsp");
                 rd.forward(request, response);
             } else {
                 em.getTransaction().begin();
-                em.persist(m);
                 em.getTransaction().commit();
                 em.close();
-                request.getSession().setAttribute("flush", "登録が完了しました。");
+                request.getSession().setAttribute("flush", "更新が完了しました。");
+
+                request.getSession().removeAttribute("money_id");
 
                 response.sendRedirect(request.getContextPath() + "/monies/index");
             }
-
-
-
         }
     }
 

@@ -1,4 +1,4 @@
-package controllers.monies;
+package controllers.users;
 
 import java.io.IOException;
 
@@ -10,20 +10,20 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import models.Money;
+import models.User;
 import utils.DBUtil;
 
 /**
- * Servlet implementation class MoniesShowServlet
+ * Servlet implementation class UsersEditServlet
  */
-@WebServlet("/monies/show")
-public class MoniesShowServlet extends HttpServlet {
+@WebServlet("/users/edit")
+public class UsersEditServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MoniesShowServlet() {
+    public UsersEditServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -35,15 +35,15 @@ public class MoniesShowServlet extends HttpServlet {
         // TODO Auto-generated method stub
         EntityManager em = DBUtil.createEntityManager();
 
-        Money m = em.find(Money.class, Integer.parseInt(request.getParameter("id")));
-
+        User u = em.find(User.class, Integer.parseInt(request.getParameter("id")));
 
         em.close();
 
-        request.setAttribute("money", m);
+        request.setAttribute("user", u);
         request.setAttribute("_token", request.getSession().getId());
-        request.getSession().setAttribute("money_id", m.getId());
-        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/monies/show.jsp");
+        request.getSession().setAttribute("user_id", u.getId());
+
+        RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/views/users/edit.jsp");
         rd.forward(request, response);
 
     }

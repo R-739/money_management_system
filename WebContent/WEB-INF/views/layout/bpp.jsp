@@ -17,8 +17,11 @@
             <c:if test="${sessionScope.login_user != null}">
              <div id="user_name">
                 <a href="<c:url value='/monies/index' />">帳簿一覧</a>&nbsp;
+                <a href="<c:url value='/users/index' />">
                 <c:out value="${sessionScope.login_user.name}" />&nbsp;さん&nbsp;&nbsp;&nbsp;
-                <a href="<c:url value='/logout' />">ログアウト</a>
+                </a>
+
+              <a href="<c:url value='/logout' />">ログアウト</a>
              </div>
             </c:if>
           </div>

@@ -43,16 +43,28 @@
                       <fmt:formatDate value="${money.updated_at}" pattern="yyyy-MM-dd HH:mm:ss" />
                       </td>
               </tr>
+              <tr>
+                    <th>Good</th>
+                    <td><c:out value="${money.likes}" /></td>
+             </tr>
+             <tr>
+                   <th>Bad</th>
+                   <td><c:out value="${money.dislikes}" /></td>
+             </tr>
             </tbody>
         </table>
 
           <c:if test="${sessionScope.login_user.id == money.user.id}">
             <p><a href="<c:url value="/monies/edit?id=${money.id}" />">この帳簿を編集する</a></p>
-            <p><a href="<c:url value="/monies/destroy?id=${money.id}" />">この帳簿を削除する</a></p>
-            <form method="POST" action="${pageContext.request.contextPath}/destroy">
-            <input type="hidden" name="_token" value="${_token}" />
-            </form>
           </c:if>
+           <form method="POST" action="<c:url value='/likes/update' />">
+                        <input type="hidden" name="_token" value="${_token}" />
+                        <button type="submit" name="likes" value="${1}">good</button>
+          </form>
+          <form method="POST" action="<c:url value='/dislikes/update' />">
+                        <input type="hidden" name="_token" value="${_token}" />
+                        <button type="submit" name="dislikes" value="${1}">bad</button>
+          </form>
       </c:when>
       <c:otherwise>
         <h2>お探しのデータは見つかりませんでした。</h2>

@@ -18,6 +18,8 @@
                     <th class="money_pay">出金額</th>
                     <th class="money_sum">合計</th>
                     <th class="money_action">操作</th>
+                    <th class="money_like">Good</th>
+                    <th class="money_dislike">Bad</th>
                 </tr>
                 <c:forEach var="money" items="${monies}" varStatus="status">
                     <tr class="row${status.count % 2}">
@@ -27,6 +29,8 @@
                         <td class="money_pay">${money.pay}</td>
                         <td class="money_sum">${money.sum}</td>
                         <td class="money_action"><a href="<c:url value='/monies/show?id=${money.id}' />">詳細を見る</a></td>
+                        <td class="money_likes">${money.likes}</td>
+                        <td class="money_dislikes">${money.dislikes}</td>
                     </tr>
                 </c:forEach>
             </tbody>
@@ -46,6 +50,7 @@
             </c:forEach>
         </div>
         <p><a href="<c:url value='/monies/new' />">新規記帳の登録</a></p>
+
 
     </c:param>
 </c:import>

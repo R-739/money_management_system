@@ -21,6 +21,12 @@
                 </ul>
                 </div>
             </div>
+            <br>
+            <c:if test="${flush != null}">
+            <div id="flush_success">
+            <c:out value="${flush}"></c:out>
+            </div>
+            </c:if>
                 <div id="content">
                     <div class="text-center">
                         ${param.content}

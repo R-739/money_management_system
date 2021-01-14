@@ -25,6 +25,15 @@ import javax.persistence.Table;
             name = "getMoniesCount",
             query = "SELECT COUNT(m) FROM Money AS m"
             ),
+    @NamedQuery(
+            name = "getMyAllMonies",
+            query = "SELECT m FROM Money AS m WHERE m.user = :user ORDER BY m.id DESC"
+            ),
+    @NamedQuery(
+            name = "getMyMoniesCount",
+            query = "SELECT COUNT(m) FROM Money AS m WHERE m.user = :user"
+            )
+
 })
 @Entity
 
@@ -59,6 +68,15 @@ public class Money {
 
     @Column(name = "sum", nullable = false)
     private String sum;
+
+    @Column(name = "likes" , nullable = false)
+    private Integer likes;
+
+    @Column(name = "dislikes", nullable = false)
+    private Integer dislikes;
+
+
+
 
     public Integer getId() {
         return id;
@@ -131,6 +149,28 @@ public class Money {
     public void Sum(String sum){
         this.sum = sum;
     }
+
+    public Integer getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Integer likes) {
+        this.likes = likes;
+    }
+
+    public Integer getDislikes() {
+        return dislikes;
+    }
+
+    public void setDislikes(Integer dislikes) {
+        this.dislikes = dislikes;
+    }
+
+
+
+
+
+
 
 
 }

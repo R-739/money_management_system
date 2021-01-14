@@ -32,7 +32,7 @@ public class UserValidator {
 
     private static String validateCode(String code, Boolean codeDuplicateCheckFlag) {
         if(code == null || code.equals("")) {
-            return "社員番号を入力してください。";
+            return "ユーザー番号を入力してください。";
         }
 
         if(codeDuplicateCheckFlag) {
@@ -42,7 +42,7 @@ public class UserValidator {
                                         .getSingleResult();
             em.close();
             if(users_count > 0) {
-                return "入力された社員番号の情報はすでに存在しています。";
+                return "入力されたユーザー番号の情報はすでに存在しています。";
             }
         }
 

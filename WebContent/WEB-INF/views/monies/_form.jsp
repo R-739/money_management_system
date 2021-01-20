@@ -30,7 +30,7 @@
 
 
 
-<label for="sum">合計</label><br />
+<label for="sum">残額</label><br />
 <input type="number" name="sum" value="" id="sum" />
 <input type="button" value="計算" onclick="clickBtn3()">
 <input type="button" value="クリア" onclick="clickBtn4()">

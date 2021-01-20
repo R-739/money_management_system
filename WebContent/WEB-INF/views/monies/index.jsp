@@ -13,18 +13,16 @@
             <tbody>
                 <tr>
                     <th class="money_date">日付</th>
-                    <th class="money_content">内訳</th>
                     <th class="money_deposit">入金額</th>
                     <th class="money_pay">出金額</th>
-                    <th class="money_sum">合計</th>
+                    <th class="money_sum">残額</th>
                     <th class="money_action">操作</th>
-                    <th class="money_like">Good</th>
-                    <th class="money_dislike">Bad</th>
+                    <th class="money_likes">Good</th>
+                    <th class="money_dislikes">Bad</th>
                 </tr>
                 <c:forEach var="money" items="${monies}" varStatus="status">
                     <tr class="row${status.count % 2}">
                         <td class="money_date"><fmt:formatDate value='${money.money_date}' pattern='yyyy-MM-dd' /></td>
-                        <td class="money_content">${money.content}</td>
                         <td class="money_deposit">${money.deposit}</td>
                         <td class="money_pay">${money.pay}</td>
                         <td class="money_sum">${money.sum}</td>

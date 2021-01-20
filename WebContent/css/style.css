@@ -15,7 +15,7 @@ body {
 }
 
 #content {
-    width: 94%;
+    width: 85%;
     margin-top: 15px;
     padding-left: 3%;
 }
@@ -114,29 +114,37 @@ table#money_list th {
     padding: 10px 2%;
 }
 
-table#money_list .money_date {
+ table#money_list .money_date {
     padding: 10px 2%;
-    width: 12%;
+    width: 20%;
 }
-table#money_list .money_content {
-    width: 40%
 
-}
 table#money_list .money_deposit {
-    width: 12%;
+    width: 11%;
 }
 
 table#money_list .money_pay {
-    width: 12%;
+    width: 11%;
 }
 
 table#money_list .money_sum {
-    width: 12%;
+    width: 11%;
 }
 
 table#money_list .money_action {
-    width: 12%;
+    width: 11%;
 }
+
+table#money_list .money_likes {
+    width: 7%;
+}
+
+table#money_list .money_dislikes {
+    width: 7%;
+}
+
+
+
 
 
 #user_name {
@@ -174,6 +182,11 @@ tr.row1 {
 tr.row0 {
         background-color: #ffffff;
 }
+
+pre {
+    font-family: "Hiragino Kaku Gothic Pro",Meiryo,"MS PGothic",Helvetica,Arial,sans-serif;
+}
+
 
 
 

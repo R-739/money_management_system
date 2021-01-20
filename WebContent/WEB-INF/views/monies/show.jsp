@@ -21,9 +21,7 @@
                 </tr>
                 <tr>
                     <th>入金額</th>
-                    <td>
-                     <c:out value="${money.deposit}" />
-                    </td>
+                    <td><c:out value="${money.deposit}" /></td>
                </tr>
                <tr>
                     <th>出金額</th>
